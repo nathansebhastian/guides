@@ -1,0 +1,27 @@
+{{ $paginator := slice -}}
+{{ if .IsHome -}}
+  {{ $paginator = .Paginate (where .Site.RegularPages "Section" "posts") -}}
+{{ else -}}
+  {{ $paginator = .Paginate .Pages -}}
+{{ end -}}
+<!DOCTYPE html>
+<html lang="en-US">
+  {{- partial "head.html" . -}}
+  <body class="d-flex flex-column min-vh-100">
+    {{- partial "header.html" . -}}
+    <div class="main container pt-5">
+      <div class='row'>
+          <main class="col-lg-10">
+            {{- block "main" . }}{{- end }}
+          </main>
+      </div>
+    </div>
+    {{ partial "footer.html" . }}
+    {{- $bootstrap := resources.Get "js/bootstrap.js" | minify -}}
+    {{- $fuse := resources.Get "js/fuse.js" | minify -}}
+    {{- $search := resources.Get "js/search.js" | minify -}}
+    <script src="{{ $bootstrap.RelPermalink }}"></script>
+    <script src="{{ $fuse.RelPermalink }}"></script>
+    <script src="{{ $search.RelPermalink }}"></script>
+  </body>
+</html>

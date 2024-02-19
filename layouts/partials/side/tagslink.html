@@ -1,0 +1,15 @@
+<section class="card mb-4">
+  <div class="card-body">
+    <h3 class="widget-title">Tags</h3>
+    <p>Click to see all tutorials tagged with:</p>
+    <div class="tags">
+      {{- range $name, $taxonomy := .Site.Taxonomies.tags }}
+      <span class="pe-3">
+        <a class="tag {{ $name }}" href="{{ .Page.Permalink }}">
+          {{- .Page.Title }}
+        </a>
+      </span>
+      {{ end }}
+    </div>
+  </div>
+</section>

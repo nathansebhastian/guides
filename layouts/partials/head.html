@@ -1,0 +1,59 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {{- if .Page.IsHome -}} 
+    {{- printf "%s" .Site.Title -}}
+    {{- else if eq .Section "tags" -}}
+      {{- printf "All %s Tutorials | %s" .Title .Site.Title -}}
+    {{- else -}}
+      {{- printf "%s | %s" .Title .Site.Title -}}
+    {{- end -}}
+  </title>
+  <meta name="author" content="{{ .Site.Params.author }}">
+  <meta name="description" content="
+  {{- if .Page.IsHome -}} 
+    {{ .Site.Params.description }} 
+  {{- else -}}
+    {{ .Page.Description }} 
+  {{- end -}}">
+  {{ $canon := .Permalink -}}
+  {{ with .Paginator -}}
+    {{ $canon = .URL | absLangURL -}}
+  {{ end -}}
+  <link rel="canonical" href="{{ $canon }}">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="shortcut icon" type="img/ico" href="/favicon.ico" />
+  <meta name="theme-color" content="#0c447c">
+
+{{- $robots := `
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">` -}}
+  {{ with .Paginator -}}
+    {{ if ne .PageNumber 1 -}}
+      {{ $robots = `
+  <meta name="robots" content="noindex, follow">` -}}
+    {{ end -}}
+  {{ end -}}
+  {{ $robots | safeHTML }}
+
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Sebhastian" />
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+  <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  {{ with $image := .Page.Resources.GetMatch "cover_image.png" }}
+  <meta property="og:image" content="{{ $image.RelPermalink | absURL}}" />
+  {{ else }}
+  <meta property="og:image" content="{{ "img/banner.png" | absURL }}" />
+  {{ end -}}
+  <meta name="twitter:title" content="{{ .Title }}"/>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@nsebhastian"/>
+  {{ $style := resources.Get "css/bootstrap.css" | minify -}}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{ $style := resources.Get "css/style.css" | minify -}}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}?v=2">
+  {{ $style := resources.Get "css/syntax.css" | minify -}}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+</head>

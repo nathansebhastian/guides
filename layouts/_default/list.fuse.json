@@ -1,0 +1,13 @@
+{{- $.Scratch.Add "index" slice -}}
+{{- $section := $.Site.GetPage "section" .Section -}}
+{{- range where (where .Site.Pages "Type" "in" (slice "posts")) "IsPage" true -}}
+  {{- if or (and (.IsDescendant $section) (and (not .Draft) (not .Params.private))) $section.IsHome -}}
+    {{- $.Scratch.Add "index" (dict "title" (htmlEscape .Title) 
+      "description" (htmlEscape .Description) 
+      "permalink" .Permalink 
+      "tags" .Params.Tags 
+      "feature" .Params.Feature
+      "publishdate" (dateFormat "Jan 02, 2006" (.PublishDate))) -}}
+  {{- end -}}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}

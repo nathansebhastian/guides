@@ -1,0 +1,16 @@
+{{ $image := $.Page.Resources.GetMatch (.Get "src")}}
+<div class="text-center">
+  <figure class="figure mt-4 mb-4">
+    <a href="{{ $image }}" target="blank">
+      <img
+        class="figure-img img-fluid rounded border"
+        alt="{{ $.Get "alt" }}"
+        title="{{ $.Get "alt" }}"
+        src="{{ $image }}"
+        width="{{ $image.Width }}"
+        height="{{ $image.Height }}"
+      />
+      <figcaption class="figure-caption text-center"><small>{{ $.Get "alt" }}</small></figcaption>
+    </a>
+  </figure>
+</div>

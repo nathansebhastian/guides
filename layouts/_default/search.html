@@ -1,0 +1,20 @@
+{{ define "main" }}
+<h1 class="mb-3" id="search-title">{{ .Title }}</h1>
+<div id="search-result">
+  {{ range (seq 15) }}
+  <div class="card border-0 mb-5">
+    <div class="row g-0">
+      <div class="col">
+        <div class="card-body">
+          <h2 class="card-title">
+            <div class="skeleton skeleton-text"></div>
+          </h2>
+          <div class="skeleton skeleton-text skeleton-text__body"></div>
+          <div class="skeleton skeleton-text skeleton-text__body"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

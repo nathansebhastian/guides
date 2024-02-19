@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="card rounded-0">
+  <div class="card-body">
+    <h1>
+      Join Rex, Stu, and thousands of other software devs to get my free email 📩
+    </h1>
+    <img
+      class="my-3 img-fluid mx-auto"
+      width="1000"
+      src="/img/nsebhastian-newsletter.webp"
+      alt="Nathan Sebhastian's newsletter"
+    />
+    <p>Hi there 👋</p>
+    <p>
+      Really excited to get you on the board! I'm sending out an occasional email with the latest programming tutorials. Drop your email in the box below and I'll send new stuff straight into your inbox!
+    </p>
+    <p>
+      Don't worry, I promise not to abuse or sell your personal email to anyone.
+    </p>
+    
+    <div class="p-5" style="background-color: #ddecff">
+      <form action="https://gumroad.com/follow_from_embed_form" method="POST">
+        <input name="seller_id" type="hidden" value="9535339686224" />
+        <div class="mb-3">
+          <input
+            name="email"
+            type="email"
+            placeholder="Your email here.."
+            class="form-control"
+          />
+        </div>
+        <div class="mt-3 d-grid gap-2">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+          <small class="form-text text-muted text-center" style="font-size: 70%">
+            No spam. Unsubscribe anytime.
+          </small>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,33 @@
+<!-- check for tags, if react, send them to the book page -->
+{{$tag := index (.Params.Tags) 0 }} 
+{{ if (eq $tag "JavaScript") }}
+<div class="alert alert-warning text-center font-weight-bold" role="alert">
+  <a class="alert-link" href="/js-bootcamp">
+    🔥 Master JavaScript by building real-world applications 🔥
+  </a>
+</div>
+{{ else if (eq $tag "NodeJS") }}
+<div class="alert alert-warning text-center font-weight-bold" role="alert">
+  <a class="alert-link" href="/nodejs-bootcamp">
+    Learn Node.js by building real-world applications 🔥
+  </a>
+</div>
+{{ else if (eq $tag "MySQL") }}
+<div class="alert alert-warning text-center font-weight-bold" role="alert">
+  <a class="alert-link" href="/mysql-bootcamp">
+    Learn how to create complex databases - Become a MySQL expert today 🔥
+  </a>
+</div>
+{{ else if (eq $tag "React") }}
+<div class="alert alert-warning text-center font-weight-bold" role="alert">
+  <a class="alert-link" href="/react-bootcamp">
+    Master React, Redux, React-Router, and more here 🔥
+  </a>
+</div>
+{{ else if or (eq $tag "HTML") (eq $tag "CSS")}}
+<div class="alert alert-warning text-center font-weight-bold" role="alert">
+  <a class="alert-link" href="/html-css-bootcamp">
+    Learn how to build stunning website layouts with HTML and CSS 🔥 
+  </a>
+</div>
+{{ end }}

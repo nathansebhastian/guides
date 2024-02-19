@@ -1,0 +1,17 @@
+baseURL = 'https://nathansebhastian.github.io/guides/'
+languageCode = 'en-us'
+title = 'Code With Nathan Guides'
+pygmentsUseClasses = true
+Paginate = 20
+disableHugoGeneratorInject=true
+[taxonomies]
+  tag = "tags"
+[permalinks]
+  posts = ":slug"
+[outputFormats.Fuse]
+  baseName = "fuse"
+  isPlainText = true
+  mediaType = "application/json"
+  notAlternative = true
+[outputs]
+  home = ["HTML", "Fuse"]

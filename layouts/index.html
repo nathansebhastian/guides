@@ -1,0 +1,7 @@
+{{ define "main" }}
+<h1 class="mb-3">Essential Guides</h1>
+  {{ range .Paginator.Pages }}
+    {{- partial "card.html" . -}}
+  {{ end }}
+{{- partial "pagination.html" . }}
+{{ end }}

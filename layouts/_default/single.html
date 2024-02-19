@@ -1,0 +1,35 @@
+{{ define "main" }}
+<article class="mb-5 card border-0">
+  <div class="card-body pb-5 px-4">
+    <h1 itemprop="title">{{ .Title }}</h1>
+    {{ if isset .Params "tags" }}
+        <small>
+          <p class="mt-1 card-text text-muted">
+            Tag: {{ range .Params.tags }}
+            <strong class="tag {{ . | urlize }}" >
+              {{ . }}
+            </strong>
+            {{ end }}
+          </p>
+        </small>
+    {{ end }}
+    <p class="text-secondary article-metadata reading-time" style="font-size: .7em;">
+      {{- $readtime := math.Round (div (countwords .Content) 200.0) }}
+      Reading time: {{ $readtime }} {{ if gt $readtime 1 }} minutes {{ else }} minute {{ end }}
+    </p>
+    <section class="entry-content"> 
+      {{ with $image := .Page.Resources.GetMatch "cover_image.png" }}
+      <figure class="mb-5">
+        <img
+          class="img-fluid"
+          src="{{ $image.RelPermalink | safeURL}}"
+          width="{{ $image.Width }}"
+          height="{{ $image.Height }}"
+        />
+      </figure>
+      {{ end }}
+      {{ .Content }}
+    </section>
+  </div>
+</article>
+{{ end }}

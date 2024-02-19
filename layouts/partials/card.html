@@ -1,0 +1,23 @@
+<div class="card border-0 mb-5">
+  <div class="row g-0">
+    <div class="col">
+      <div class="card-body">
+        <h2 class="card-title">
+          <a href="{{ .RelPermalink }}" class="stretched-link"> {{ .Title }} </a>
+        </h2>
+        {{ if isset .Params "tags" }}
+        <small>
+          <p class="mt-1 card-text text-muted">
+            Tag: {{ range .Params.tags }}
+            <strong class="tag {{ . | urlize }}" >
+              {{ . }}
+            </strong>
+            {{ end }}
+          </p>
+        </small>
+        {{ end }}
+        <p class="card-text">{{ .Description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+# Build directory
+/public
+/resources
+.DS_Store
+node_modules
+.env
+/static/tcard
+/purgecss
+.hugo_build.lock

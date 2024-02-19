@@ -1,0 +1,231 @@
+body {
+  line-height: 1.8;
+  font-size: 20px;
+  background-color: #f8f8f8;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.navbar {
+  font-size: 1rem;
+}
+
+.entry-content > ul {
+  margin-top: 1rem;
+}
+
+.sidebar-area section {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+h3.widget-title {
+  font-size: 1.2rem;
+}
+
+.entry-content h2,
+.entry-content h3 {
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-area {
+  font-size: 17px;
+}
+
+.card {
+  border-radius: 0rem;
+}
+
+.card-title > a {
+  color: #212529;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.main {
+  padding-bottom: 150px;
+}
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+pre.chroma {
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1.8rem 0;
+  overflow: auto;
+}
+
+div.highlight {
+  margin-top: 20px;
+}
+
+.entry-content p {
+  margin-bottom: 1.2rem;
+}
+
+.entry-content > p:first-child {
+  margin-top: 2rem;
+}
+
+hr.entry-content-hr {
+  margin: 0 auto;
+  width: 70%;
+  color: #6e6e6e;
+}
+
+.related-articles, 
+#TableOfContents {
+  font-weight: 300;
+}
+
+#TableOfContents {
+  margin: 20px;
+  font-size: 1.15rem;
+}
+
+@media (min-width: 992px) {
+  .nav-next {
+    border-left: 1px solid #f0f0f0;
+  }
+}
+
+/* SEARCH START */
+
+.search-box {
+  position: relative;
+}
+
+.search-input {
+  padding: 0.3rem 1.7rem;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #c4c8d8;
+  border-radius: 5px;
+}
+
+.search-icon {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0.5rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.bg-header {
+  background-color: #03478b !important;
+}
+
+section.footnotes {
+  font-size: .8rem;
+}
+
+/* SKELETON FOR SEARCH */
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.skeleton-text__body {
+  width: 75%;
+}
+
+/* FORMULA */
+
+.formula {
+  display: inline-table;
+  text-align: center;
+  vertical-align: 30%;
+  margin: 0 2px;
+  border-collapse: collapse;
+}
+
+.formula em {
+  display: table-row;
+  text-align: center;
+  border-bottom: solid #333 1px;
+  font-size: 93%;
+  font-style: inherit;
+  line-height: 130%;
+}
+
+.formula strong {
+  display: table-row;
+  text-align: center;
+  font-weight: inherit;
+  font-size: 93%;
+  line-height: 110%;
+}
+
+.formula em:before, .formula em:after, .formula strong:before, .formula strong:after {
+  content: "\2005";
+}
+
+/* FOR ERROR CODE BLOCK */
+
+.error code {
+  color: #e06c75;
+}
+
+/* TAGS BUTTON START */
+
+.tags span {
+  display: block;
+}
+
+.tag {
+  font-weight: 700;
+}
+
+.tag.youtube {
+  color: #ff1010;
+}
+
+.tag.twitter {
+  color: #67b1f6;
+}
+
+.tag.linkedin {
+  color: #26639d;
+}
+
+.tag.freecodecamp {
+  color: #201918;
+}
+
+/* TAGS BUTTON END */
